@@ -1,0 +1,71 @@
+/* Styles for DustFlix */
+
+h1 a{
+	font-family: 'Baloo Thambi';
+	font-size: 40px;
+}
+
+body{
+	font-family: 'Open Sans', sans-serif;
+	background-color: lightgrey;
+}
+
+main{
+	padding-top: 20px;
+}
+
+.navbar-brand{
+	display: inline;
+}
+
+.hamburger {
+	margin-top: 100px;
+}
+
+.hide {
+	display: none;
+}
+
+
+h3 {
+	font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+img{
+	width: 100%;
+}
+
+.dropdown-toggle{
+	font-size: 20px;
+}
+
+.navbar {
+	margin-bottom: 0px !important;
+}
+
+.form-inline {
+	padding-top: 15px;
+}
+
+#search{
+	padding-left: 20px;
+	padding-top: 10px;
+}
+/* Navbar Styles
+
+line height is 20px by default so add 30px top and bottom to equal the new .navbar-brand 80px height  */
+
+.example3 .navbar-brand {
+  height: 40px;
+}
+
+.example3 .nav >li >a {
+  padding-top: 30px;
+}
+
+.navbar-toggle{
+	margin-top: 15px !important;
+}

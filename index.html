@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width" name="viewport">
+    <meta>
+    <title>Dustflix--YouTube API</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!--Custom Styles -->
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi|Open+Sans" rel="stylesheet">
+    <!-- Normalize.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="example3">
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3" class="hamburger">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h1 class="navbar-brand"><a href="index.html">DustFlix</a></h1>
+                    </div>
+                    <div id="navbar3" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-left">
+                            <!-- Dropdown 1 -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu" id="categories">
+                                </ul>
+                            </li>
+                            <!-- End Dropdown 1 -->
+                            <!-- Dropdown 2 -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sort<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu" id="sort">
+                                    <li><a href="#" id ="popular">Popular</a>
+                                    </li>
+                                    <li><a href="#" id = "new">New</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- End Dropdown 2 -->
+                            <!-- Dropdown 3 -->
+                            <!--<li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Type<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu" id="type">
+                                    <li><a href="#">Action</a>
+                                    </li>
+                                    <li><a href="#">Another action</a>
+                                    </li>
+                                    <li><a href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>-->
+                            <!-- End Dropdown 3 -->
+                        </ul>
+
+                <div class="input-group col-md-6" id="search">
+                    <input type="text" class="form-control input-lg" placeholder="Search" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+                <!--/.container-fluid -->
+            </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row videos" id = "youtubeContent">
+
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-lg btn-block" id = "prev">Previous</button>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-primary btn-lg btn-block" id = "next">Next</button>
+            </div>
+        </div>
+    </main>
+    <div class="templates hide">
+        <div class="col-sm-6 col-md-3 video">
+            <div class="thumbnail">
+                <a href=""><img src="..." alt="..."></a>
+                <div class="caption">
+                    <h3><a></a></h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.0.js">
+    </script>
+    <!-- Custom JS -->
+    <script src="app.js" type="text/javascript">
+    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    </script>
+</body>
+
+</html>
