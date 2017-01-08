@@ -27,6 +27,8 @@ var search;
     $.getJSON(youtube_URL, params, function(json){
             $('.videos').html(" ");
             console.log(json.items);
+            next = json.nextPageToken;
+            previous = json.prevPageToken;
             var listing = json.items;
             $.each(listing,
               function (i, item) {
@@ -46,7 +48,7 @@ var search;
 $(document).ready(function(){
   var clickClosure = function(key){
     return function(){
-      videoCategoryId = key;
+      category = key;
       updateData();
     };
   };
@@ -57,18 +59,31 @@ $(document).ready(function(){
       html.on('click', clickClosure(key));
       $('#categories').append(html);
     };
-  $( ".next" ).click(function() {
+  $( "#next" ).click(function() {
     direction = true;
     updateData(direction);
   });
-  $( ".prev" ).click(function() {
+  $( "#prev" ).click(function() {
     direction = false;
     updateData(direction);
   });
 
+  $('#top').click(function(){
+    sort = 'rating';
+    updateData();
+  });
+  $('#new').click(function(){
+    sort = 'date';
+    updateData();
+  });
+  $('#view').click(function(){
+    sort = 'viewCount';
+    updateData();
+  });
+
   $('#search').submit(function(event) {
     event.preventDefault();
-    search = $('#search').val();
+    search = $('#searchValue').val();
     updateData();
   })
   updateData();
