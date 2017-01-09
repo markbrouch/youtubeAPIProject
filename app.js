@@ -18,7 +18,7 @@ var search;
 
 //End Global Variables
 
-
+// For code review
   var updateData = function(direction){
     var params = {
       part:"snippet",
@@ -29,6 +29,7 @@ var search;
       videoCategoryId: category,
       q: search
     };
+// For code review
     if(direction === true){
       //Goes to next page when .click event handler is clicked
       params.pageToken = next;
@@ -37,6 +38,7 @@ var search;
       //Goes to previous page when .click event handler is clicked
       params.pageToken = previous;
     }
+// For code review
     console.log(params);
     $.getJSON(youtube_URL, params, function(json){
             //New Videos with every page load
@@ -47,6 +49,7 @@ var search;
             previous = json.prevPageToken;
             //Captures JSON array of Objects in "listing"
             var listing = json.items;
+// For code review
             $.each(listing,
               function (i, item) {
                 var html = $('.templates .video').clone();
@@ -62,7 +65,7 @@ var search;
           }
         )
       }
-
+// For code review
 $(document).ready(function(){
   //Click closure to assign key to the current category and update the data
   var clickClosure = function(key){
@@ -71,6 +74,7 @@ $(document).ready(function(){
       updateData();
     };
   };
+// For code review
   //Iterates through Category Object
     for(key in categories){
       var value = categories[key];
@@ -79,6 +83,7 @@ $(document).ready(function(){
       html.on('click', clickClosure(key));
       $('#categories').append(html);
     };
+// For code review
   //Button Event Handlers
   $( "#next" ).click(function() {
     direction = true;
@@ -90,7 +95,7 @@ $(document).ready(function(){
   });
 
   //Sort Dropdown Event Handlers
-
+// For code review
   $('#top').click(function(){
     sort = 'rating';
     updateData();
@@ -105,7 +110,7 @@ $(document).ready(function(){
   });
 
 //Search event handler
-
+// For code review
   $('#search').submit(function(event) {
     event.preventDefault();
     search = $('#searchValue').val();
@@ -116,7 +121,7 @@ $(document).ready(function(){
 });
 
 //Categories that populate for category dropdown
-
+// For code review
 var categories = {
 2 : "Autos & Vehicles",
 1 : "Film & Animation",
