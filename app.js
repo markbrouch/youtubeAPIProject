@@ -1,11 +1,21 @@
+//Global Variables
+
 var youtube_URL = "https:www.googleapis.com/youtube/v3/search";
+//Default sort value
 var sort = "date";
 var apiKey = "AIzaSyDRmvPOyYPqT68J3JTdSppAWoqEZ4yaG4g";
+//What direction (next,previous) will come next
 var direction;
+//variables to receive pageToken
 var next, previous;
+//Holds current selected category
 var category;
 var type = "video";
+//Holds value of submitted search
 var search;
+
+//End Global Variables
+
 
   var updateData = function(direction){
     var params = {
@@ -18,21 +28,27 @@ var search;
       q: search
     };
     if(direction === true){
+      //Goes to next page when .click event handler is clicked
       params.pageToken = next;
     }
     else if(direction === false){
+      //Goes to previous page when .click event handler is clicked
       params.pageToken = previous;
     }
     console.log(params);
     $.getJSON(youtube_URL, params, function(json){
+            //New Videos with every page load
             $('.videos').html(" ");
-            console.log(json.items);
+            //Captures JSON data in "next" global variable
             next = json.nextPageToken;
+            //Captures JSON data in "previous" global variable
             previous = json.prevPageToken;
+            //Captures JSON array of Objects in "listing"
             var listing = json.items;
             $.each(listing,
               function (i, item) {
                 var html = $('.templates .video').clone();
+                //Makes "html" into jQuery object
                 html = $(html);
                 html.find('h3 a').text(item.snippet.title);
                 html.find('img').attr('title',item.snippet.title);
@@ -46,12 +62,14 @@ var search;
       }
 
 $(document).ready(function(){
+  //Click closure to assign key to the current category and update the data
   var clickClosure = function(key){
     return function(){
       category = key;
       updateData();
     };
   };
+  //Iterates through Category Object
     for(key in categories){
       var value = categories[key];
       console.log(key, value);
@@ -59,6 +77,7 @@ $(document).ready(function(){
       html.on('click', clickClosure(key));
       $('#categories').append(html);
     };
+  //Button Event Handlers
   $( "#next" ).click(function() {
     direction = true;
     updateData(direction);
@@ -67,6 +86,8 @@ $(document).ready(function(){
     direction = false;
     updateData(direction);
   });
+
+  //Sort Dropdown Event Handlers
 
   $('#top').click(function(){
     sort = 'rating';
@@ -77,9 +98,11 @@ $(document).ready(function(){
     updateData();
   });
   $('#view').click(function(){
-    sort = 'viewCount';
+    sort = 'viewCountl';
     updateData();
   });
+
+//Search event handler
 
   $('#search').submit(function(event) {
     event.preventDefault();
@@ -90,6 +113,7 @@ $(document).ready(function(){
 
 });
 
+//Categories that populate for category dropdown
 
 var categories = {
 2 : "Autos & Vehicles",
